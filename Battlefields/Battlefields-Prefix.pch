@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Battlefields' target in the 'Battlefields' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

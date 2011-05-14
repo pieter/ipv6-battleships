@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F57FAA3C137EF3200065CC84 /* BFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */; };
+		F57FAA3F137EF4AF0065CC84 /* battlefields.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA3E137EF4AF0065CC84 /* battlefields.rb */; };
+		F57FAA41137EF4B60065CC84 /* network.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA40137EF4B60065CC84 /* network.rb */; };
+		F57FAA43137EF9210065CC84 /* BFBBattlefields.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */; };
+		F5A9471C137EEA63005E7739 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471B137EEA63005E7739 /* Cocoa.framework */; };
+		F5A9471E137EEA63005E7739 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471D137EEA63005E7739 /* MacRuby.framework */; };
+		F5A94725137EEA63005E7739 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5A94723137EEA63005E7739 /* InfoPlist.strings */; };
+		F5A94727137EEA63005E7739 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A94726137EEA63005E7739 /* main.m */; };
+		F5A9472C137EEA63005E7739 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A9472A137EEA63005E7739 /* MainMenu.xib */; };
+		F5A9472F137EEA63005E7739 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = F5A9472E137EEA63005E7739 /* rb_main.rb */; };
+		F5A94731137EEA63005E7739 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = F5A94730137EEA63005E7739 /* AppDelegate.rb */; };
+		F5A94741137EEFE9005E7739 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = F5A94740137EEFE9005E7739 /* lib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F57FAA3A137EF3200065CC84 /* BFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFAppDelegate.h; sourceTree = "<group>"; };
+		F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFAppDelegate.m; sourceTree = "<group>"; };
+		F57FAA3E137EF4AF0065CC84 /* battlefields.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; name = battlefields.rb; path = lib/battlefields.rb; sourceTree = "<group>"; };
+		F57FAA40137EF4B60065CC84 /* network.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; name = network.rb; path = lib/network.rb; sourceTree = "<group>"; };
+		F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = BFBBattlefields.rb; sourceTree = "<group>"; };
+		F57FAA44137EFB060065CC84 /* BFBBattlefields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBBattlefields.h; sourceTree = "<group>"; };
+		F5A94717137EEA63005E7739 /* Battlefields.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Battlefields.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A9471B137EEA63005E7739 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F5A9471D137EEA63005E7739 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
+		F5A94722137EEA63005E7739 /* Battlefields-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Battlefields-Info.plist"; sourceTree = "<group>"; };
+		F5A94724137EEA63005E7739 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5A94726137EEA63005E7739 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5A94728137EEA63005E7739 /* Battlefields-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Battlefields-Prefix.pch"; sourceTree = "<group>"; };
+		F5A9472B137EEA63005E7739 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F5A9472E137EEA63005E7739 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
+		F5A94730137EEA63005E7739 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+		F5A94740137EEFE9005E7739 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5A94714137EEA63005E7739 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A9471C137EEA63005E7739 /* Cocoa.framework in Frameworks */,
+				F5A9471E137EEA63005E7739 /* MacRuby.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F57FAA39137EF3110065CC84 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				F57FAA3A137EF3200065CC84 /* BFAppDelegate.h */,
+				F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */,
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
+		F57FAA3D137EF3BA0065CC84 /* Ruby Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */,
+				F57FAA44137EFB060065CC84 /* BFBBattlefields.h */,
+			);
+			path = "Ruby Bridge";
+			sourceTree = "<group>";
+		};
+		F5A9470C137EEA63005E7739 = {
+			isa = PBXGroup;
+			children = (
+				F57FAA40137EF4B60065CC84 /* network.rb */,
+				F5A94720137EEA63005E7739 /* Battlefields */,
+				F5A9471A137EEA63005E7739 /* Frameworks */,
+				F57FAA3E137EF4AF0065CC84 /* battlefields.rb */,
+				F5A94718137EEA63005E7739 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5A94718137EEA63005E7739 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5A94717137EEA63005E7739 /* Battlefields.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5A9471A137EEA63005E7739 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9471B137EEA63005E7739 /* Cocoa.framework */,
+				F5A9471D137EEA63005E7739 /* MacRuby.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5A94720137EEA63005E7739 /* Battlefields */ = {
+			isa = PBXGroup;
+			children = (
+				F57FAA3D137EF3BA0065CC84 /* Ruby Bridge */,
+				F57FAA39137EF3110065CC84 /* Objective-C */,
+				F5A94740137EEFE9005E7739 /* lib */,
+				F5A94730137EEA63005E7739 /* AppDelegate.rb */,
+				F5A94729137EEA63005E7739 /* Resources */,
+				F5A9472D137EEA63005E7739 /* Other Sources */,
+				F5A94721137EEA63005E7739 /* Supporting Files */,
+			);
+			path = Battlefields;
+			sourceTree = "<group>";
+		};
+		F5A94721137EEA63005E7739 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5A94722137EEA63005E7739 /* Battlefields-Info.plist */,
+				F5A94723137EEA63005E7739 /* InfoPlist.strings */,
+				F5A94726137EEA63005E7739 /* main.m */,
+				F5A94728137EEA63005E7739 /* Battlefields-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5A94729137EEA63005E7739 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9472A137EEA63005E7739 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F5A9472D137EEA63005E7739 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F5A9472E137EEA63005E7739 /* rb_main.rb */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		F5A9471F137EEA63005E7739 /* Deployment */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "--compile --embed";
+			buildConfigurationList = F5A94737137EEA63005E7739 /* Build configuration list for PBXLegacyTarget "Deployment" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/macruby_deploy;
+			dependencies = (
+			);
+			name = Deployment;
+			passBuildSettingsInEnvironment = 1;
+			productName = Deployment;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		F5A94716137EEA63005E7739 /* Battlefields */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A94734137EEA63005E7739 /* Build configuration list for PBXNativeTarget "Battlefields" */;
+			buildPhases = (
+				F5A94713137EEA63005E7739 /* Sources */,
+				F5A94714137EEA63005E7739 /* Frameworks */,
+				F5A94715137EEA63005E7739 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Battlefields;
+			productName = Battlefields;
+			productReference = F5A94717137EEA63005E7739 /* Battlefields.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5A9470E137EEA63005E7739 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = F5A94711137EEA63005E7739 /* Build configuration list for PBXProject "Battlefields" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F5A9470C137EEA63005E7739;
+			productRefGroup = F5A94718137EEA63005E7739 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5A94716137EEA63005E7739 /* Battlefields */,
+				F5A9471F137EEA63005E7739 /* Deployment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5A94715137EEA63005E7739 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A94725137EEA63005E7739 /* InfoPlist.strings in Resources */,
+				F5A9472C137EEA63005E7739 /* MainMenu.xib in Resources */,
+				F57FAA41137EF4B60065CC84 /* network.rb in Resources */,
+				F57FAA3F137EF4AF0065CC84 /* battlefields.rb in Resources */,
+				F5A9472F137EEA63005E7739 /* rb_main.rb in Resources */,
+				F5A94731137EEA63005E7739 /* AppDelegate.rb in Resources */,
+				F5A94741137EEFE9005E7739 /* lib in Resources */,
+				F57FAA43137EF9210065CC84 /* BFBBattlefields.rb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5A94713137EEA63005E7739 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A94727137EEA63005E7739 /* main.m in Sources */,
+				F57FAA3C137EF3200065CC84 /* BFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F5A94723137EEA63005E7739 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5A94724137EEA63005E7739 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F5A9472A137EEA63005E7739 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5A9472B137EEA63005E7739 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5A94732137EEA63005E7739 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F5A94733137EEA63005E7739 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F5A94735137EEA63005E7739 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Battlefields/Battlefields-Prefix.pch";
+				INFOPLIST_FILE = "Battlefields/Battlefields-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F5A94736137EEA63005E7739 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Battlefields/Battlefields-Prefix.pch";
+				INFOPLIST_FILE = "Battlefields/Battlefields-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F5A94738137EEA63005E7739 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		F5A94739137EEA63005E7739 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5A94711137EEA63005E7739 /* Build configuration list for PBXProject "Battlefields" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A94732137EEA63005E7739 /* Debug */,
+				F5A94733137EEA63005E7739 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5A94734137EEA63005E7739 /* Build configuration list for PBXNativeTarget "Battlefields" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A94735137EEA63005E7739 /* Debug */,
+				F5A94736137EEA63005E7739 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5A94737137EEA63005E7739 /* Build configuration list for PBXLegacyTarget "Deployment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A94738137EEA63005E7739 /* Debug */,
+				F5A94739137EEA63005E7739 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5A9470E137EEA63005E7739 /* Project object */;
+}
