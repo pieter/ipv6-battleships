@@ -11,6 +11,14 @@ class Battlefields
     @interface = interface
     @own_prefix = prefix || Network.v6_prefix(interface)
     @own_game_id = game_id || rand(10000)
+    
+    @their_prefix = "0"
+    @their_game_id = 0
+  end
+
+  def set_opponent(prefix, game_id)
+    @their_prefix = prefix
+    @their_game_id = game_id
   end
 
   # Address creation
@@ -23,13 +31,25 @@ class Battlefields
     Network.firewall_flush
   end
 
-  def address_for_coordinate(x, y = nil)
-    unless y
+  def coordinate_to_suffix(x, y)
+    unless y # If we don't have an y, then x = y * 10 + x, so we need to extract that
       z = x / 10
       y = x - z * 10
       x = z
     end
-    "%s:%s:%04i::%02x%02x" % [@own_prefix, GAME_PREFIX, @own_game_id, x, y]
+    return "f%x%02x" % [x, y]
+  end
+
+  def address_for_coordinate(x, y = nil)
+    "%s:%s:%04i::%s" % [@own_prefix, GAME_PREFIX, @own_game_id, coordinate_to_suffix(x, y)]
+  end
+
+  def their_address_for_coordinate(x, y=nil)
+    "%s:%s:%04i::%s" % [@their_prefix, GAME_PREFIX, @their_game_id, coordinate_to_suffix(x, y)]
+  end
+
+  def opponent_coordinate_is_ship(x, y=nil)
+    return Network.check_address(their_address_for_coordinate(x, y))
   end
 
   # Add all necessary IPv6 addresses

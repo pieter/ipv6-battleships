@@ -16,6 +16,10 @@ class BFBBattlefields
         self
     end
     
+    def setOpponentPrefix(prefix, gameID:gameID);
+        @battlefield.set_opponent(prefix, gameID);
+    end
+    
     def gamePrefix
         Battlefields::GAME_PREFIX
     end
@@ -37,5 +41,17 @@ class BFBBattlefields
     
     def cleanUp
         @battlefield.cleanup()
+    end
+    
+    def addressForX(x, Y: y)
+        @battlefield.address_for_coordinate(x, y);
+    end
+
+    def theirAddressForX(x, Y: y)
+        @battlefield.their_address_for_coordinate(x, y);
+    end
+    
+    def opponentHasShipAtX(x, Y:y)
+        @battlefield.opponent_coordinate_is_ship(x, y)
     end
 end

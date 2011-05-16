@@ -1,10 +1,7 @@
 #!/usr/bin/ruby
 require 'lib/battlefields'
 
-PREFIX = "2001:470:1f15:1372"
-INTERFACE = "en1"
-
-bf = Battlefields.new(INTERFACE, PREFIX, "1234")
+bf = Battlefields.new("en1")
 
 puts "Cleaning up old addresses and info"
 bf.cleanup
@@ -21,3 +18,4 @@ bf.add_firewall_rules
 puts "Printing board"
 puts bf.board_rep
 
+puts "The game is now accessible at #{bf.own_prefix}/#{bf.own_game_id}"

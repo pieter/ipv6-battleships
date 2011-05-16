@@ -10,6 +10,7 @@
 
 @interface BFAppDelegate : NSObject {
     NSTextField *statusLabel;
+    NSMatrix *yourGrid;
     NSTextField *yourIDLabel;
     NSTextField *yourPrefixLabel;
 }
@@ -17,6 +18,7 @@
 
 @property (retain) NSWindow *window;
 @property (assign) IBOutlet NSTextField *statusLabel;
+@property (assign) IBOutlet NSMatrix *yourGrid;
 
 @property (retain) IBOutlet NSTextField *theirIDField;
 @property (retain) IBOutlet NSTextField *theirPrefixField;
@@ -25,4 +27,6 @@
 
 - (IBAction)startGame:(id)sender;
 - (IBAction)stopGame:(id)sender;
+
+- (IBAction)gridClicked:(id)sender;
 @end

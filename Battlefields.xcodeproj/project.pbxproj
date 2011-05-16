@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50514561381C80F00726374 /* BFGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50514551381C80F00726374 /* BFGridCell.m */; };
 		F57FAA3C137EF3200065CC84 /* BFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */; };
 		F57FAA43137EF9210065CC84 /* BFBBattlefields.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */; };
 		F5A9471C137EEA63005E7739 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471B137EEA63005E7739 /* Cocoa.framework */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F50514541381C80F00726374 /* BFGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFGridCell.h; sourceTree = "<group>"; };
+		F50514551381C80F00726374 /* BFGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFGridCell.m; sourceTree = "<group>"; };
 		F57FAA3A137EF3200065CC84 /* BFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFAppDelegate.h; sourceTree = "<group>"; };
 		F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFAppDelegate.m; sourceTree = "<group>"; };
 		F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = BFBBattlefields.rb; sourceTree = "<group>"; };
@@ -53,6 +56,8 @@
 			children = (
 				F57FAA3A137EF3200065CC84 /* BFAppDelegate.h */,
 				F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */,
+				F50514541381C80F00726374 /* BFGridCell.h */,
+				F50514551381C80F00726374 /* BFGridCell.m */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			files = (
 				F5A94727137EEA63005E7739 /* main.m in Sources */,
 				F57FAA3C137EF3200065CC84 /* BFAppDelegate.m in Sources */,
+				F50514561381C80F00726374 /* BFGridCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

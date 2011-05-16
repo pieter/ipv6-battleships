@@ -15,9 +15,9 @@ module Network
     `sudo ifconfig #{interface} inet6 alias #{address}`
   end
 
-  # Note: this is very shaky!
+  # Note: this is very shaky AND SLOW!
   def self.check_address(address)
-    IO.popen("sudo ping6 -v -i1 -c1 #{address} 2>&1") { |io|
+    IO.popen("sudo ping6 -S2001:470:1f15:1372:21b:63ff:fe08:d8a3 -v -i1 -c1 #{address} 2>&1") { |io|
       while line = io.gets
         if line =~ /ret=-1/ || line =~ /Destination Administratively Unreachable/
           `kill -9 #{io.pid}`
