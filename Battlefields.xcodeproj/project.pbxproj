@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F57FAA3C137EF3200065CC84 /* BFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */; };
-		F57FAA3F137EF4AF0065CC84 /* battlefields.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA3E137EF4AF0065CC84 /* battlefields.rb */; };
-		F57FAA41137EF4B60065CC84 /* network.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA40137EF4B60065CC84 /* network.rb */; };
 		F57FAA43137EF9210065CC84 /* BFBBattlefields.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */; };
 		F5A9471C137EEA63005E7739 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471B137EEA63005E7739 /* Cocoa.framework */; };
 		F5A9471E137EEA63005E7739 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471D137EEA63005E7739 /* MacRuby.framework */; };
@@ -17,15 +15,12 @@
 		F5A94727137EEA63005E7739 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A94726137EEA63005E7739 /* main.m */; };
 		F5A9472C137EEA63005E7739 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A9472A137EEA63005E7739 /* MainMenu.xib */; };
 		F5A9472F137EEA63005E7739 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = F5A9472E137EEA63005E7739 /* rb_main.rb */; };
-		F5A94731137EEA63005E7739 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = F5A94730137EEA63005E7739 /* AppDelegate.rb */; };
 		F5A94741137EEFE9005E7739 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = F5A94740137EEFE9005E7739 /* lib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F57FAA3A137EF3200065CC84 /* BFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFAppDelegate.h; sourceTree = "<group>"; };
 		F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFAppDelegate.m; sourceTree = "<group>"; };
-		F57FAA3E137EF4AF0065CC84 /* battlefields.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; name = battlefields.rb; path = lib/battlefields.rb; sourceTree = "<group>"; };
-		F57FAA40137EF4B60065CC84 /* network.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; name = network.rb; path = lib/network.rb; sourceTree = "<group>"; };
 		F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = BFBBattlefields.rb; sourceTree = "<group>"; };
 		F57FAA44137EFB060065CC84 /* BFBBattlefields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBBattlefields.h; sourceTree = "<group>"; };
 		F5A94717137EEA63005E7739 /* Battlefields.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Battlefields.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +32,6 @@
 		F5A94728137EEA63005E7739 /* Battlefields-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Battlefields-Prefix.pch"; sourceTree = "<group>"; };
 		F5A9472B137EEA63005E7739 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F5A9472E137EEA63005E7739 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
-		F5A94730137EEA63005E7739 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
 		F5A94740137EEFE9005E7739 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -75,10 +69,8 @@
 		F5A9470C137EEA63005E7739 = {
 			isa = PBXGroup;
 			children = (
-				F57FAA40137EF4B60065CC84 /* network.rb */,
 				F5A94720137EEA63005E7739 /* Battlefields */,
 				F5A9471A137EEA63005E7739 /* Frameworks */,
-				F57FAA3E137EF4AF0065CC84 /* battlefields.rb */,
 				F5A94718137EEA63005E7739 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,7 +98,6 @@
 				F57FAA3D137EF3BA0065CC84 /* Ruby Bridge */,
 				F57FAA39137EF3110065CC84 /* Objective-C */,
 				F5A94740137EEFE9005E7739 /* lib */,
-				F5A94730137EEA63005E7739 /* AppDelegate.rb */,
 				F5A94729137EEA63005E7739 /* Resources */,
 				F5A9472D137EEA63005E7739 /* Other Sources */,
 				F5A94721137EEA63005E7739 /* Supporting Files */,
@@ -207,10 +198,7 @@
 			files = (
 				F5A94725137EEA63005E7739 /* InfoPlist.strings in Resources */,
 				F5A9472C137EEA63005E7739 /* MainMenu.xib in Resources */,
-				F57FAA41137EF4B60065CC84 /* network.rb in Resources */,
-				F57FAA3F137EF4AF0065CC84 /* battlefields.rb in Resources */,
 				F5A9472F137EEA63005E7739 /* rb_main.rb in Resources */,
-				F5A94731137EEA63005E7739 /* AppDelegate.rb in Resources */,
 				F5A94741137EEFE9005E7739 /* lib in Resources */,
 				F57FAA43137EF9210065CC84 /* BFBBattlefields.rb in Resources */,
 			);
