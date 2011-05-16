@@ -34,4 +34,8 @@ class BFBBattlefields
         @battlefield.generate_board
         @battlefield.add_firewall_rules
     end
+    
+    def cleanUp
+        @battlefield.cleanup()
+    end
 end

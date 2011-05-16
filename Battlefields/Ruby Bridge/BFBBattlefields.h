@@ -17,5 +17,6 @@
 - (id)initWithInterface:(NSString *)theInterface prefix:(NSString *)thePrefix gameID:(NSNumber *)theGameID;
 // Adds the IP addresses to the interface, generates a new random board and sets up the correct firewall rules
 - (void)setUp;
+- (void)cleanUp;
 
 @end

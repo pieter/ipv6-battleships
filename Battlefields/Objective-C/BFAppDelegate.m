@@ -40,12 +40,17 @@
 
 - (IBAction)startGame:(id)sender;
 {
-    NSString *prefix = [[self theirPrefixField] stringValue];
-    NSString *gameID = [[self theirIDField] stringValue];
+    NSString *theirPrefix = [[self theirPrefixField] stringValue];
+    NSString *theirGameID = [[self theirIDField] stringValue];
 
-    NSLog(@"Field is: %@", [self field]);
+    NSLog(@"Field is: %@. Opponent is %@/%@", [self field], theirPrefix, theirGameID);
     [[self statusLabel] setStringValue:@"Setting up.."];
     [[self field] setUp];
     [[self statusLabel] setStringValue:@"Done"];
 }
+
+- (IBAction)stopGame:(id)sender {
+    [[self field] cleanUp];
+}
+
 @end

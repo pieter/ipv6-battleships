@@ -24,4 +24,5 @@
 @property (assign) IBOutlet NSTextField *yourPrefixLabel;
 
 - (IBAction)startGame:(id)sender;
+- (IBAction)stopGame:(id)sender;
 @end
