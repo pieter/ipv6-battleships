@@ -5,12 +5,12 @@ class Battlefields
   GAME_PREFIX = "baba"
   BOARD_SIZE = 10
 
-  attr_reader :own_prefix, :game_id
+  attr_reader :own_prefix, :own_game_id
 
   def initialize(interface, prefix = nil, game_id = nil)
     @interface = interface
     @own_prefix = prefix || Network.v6_prefix(interface)
-    @game_id = game_id || rand(10000)
+    @own_game_id = game_id || rand(10000)
   end
 
   # Address creation
@@ -29,7 +29,7 @@ class Battlefields
       y = x - z * 10
       x = z
     end
-    "%s:%s:%04i::%02x%02x" % [@own_prefix, GAME_PREFIX, @game_id, x, y]
+    "%s:%s:%04i::%02x%02x" % [@own_prefix, GAME_PREFIX, @own_game_id, x, y]
   end
 
   # Add all necessary IPv6 addresses
@@ -43,7 +43,7 @@ class Battlefields
   end
 
   def add_firewall_rules
-    `sudo ip6fw add 2000 accept ipv6-icmp from any to #{@own_prefix}:#{GAME_PREFIX}:#{@game_id}::/96`
+    `sudo ip6fw add 2000 accept ipv6-icmp from any to #{@own_prefix}:#{GAME_PREFIX}:#{@own_game_id}::/96`
     @board.each_with_index do |has_ship, index|
       unless has_ship
         command = "sudo ip6fw add 1%03i unreach admin ipv6-icmp from any to %s" % [index, self.address_for_coordinate(index)]

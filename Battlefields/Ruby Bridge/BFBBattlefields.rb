@@ -25,7 +25,7 @@ class BFBBattlefields
     end
     
     def gameID
-       @battlefield.game_id 
+       @battlefield.own_game_id 
     end
 
     def setUp
