@@ -19,4 +19,19 @@ class BFBBattlefields
     def gamePrefix
         Battlefields::GAME_PREFIX
     end
+    
+    def interfacePrefix
+        @battlefield.own_prefix
+    end
+    
+    def gameID
+       @battlefield.game_id 
+    end
+
+    def setUp
+        @battlefield.cleanup
+        @battlefield.add_addresses
+        @battlefield.generate_board
+        @battlefield.add_firewall_rules
+    end
 end

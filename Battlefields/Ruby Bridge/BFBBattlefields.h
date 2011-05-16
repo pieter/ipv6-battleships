@@ -8,6 +8,13 @@
 
 @interface BFBBattlefields : NSObject 
 
-- (id)initWithInterface:(NSString *)theInterface prefix:(NSString *)thePrefix gameID:(NSString *)theGameID;
+- (id)initWithInterface:(NSString *)theInterface prefix:(NSString *)thePrefix gameID:(NSNumber *)theGameID;
+
+// Should this be used?
 - (NSString *)gamePrefix;
+
+- (NSString *)interfacePrefix;
+- (NSNumber *)gameID;
+
+- (void)setUp;
 @end

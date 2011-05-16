@@ -9,16 +9,24 @@
 #import "BFAppDelegate.h"
 #import "BFBBattlefields.h"
 
-@implementation BFAppDelegate
+@interface BFAppDelegate ()
 
-@class Battlefields;
-@synthesize window, prefixLabel;
+@property (retain) BFBBattlefields *field;
+@end
+
+@implementation BFAppDelegate
+@synthesize statusLabel;
+@synthesize yourIDLabel;
+@synthesize yourPrefixLabel;
+@synthesize window, theirIDField, theirPrefixField;
+@synthesize field = i_field;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        BFBBattlefields *field = [[NSClassFromString(@"BFBBattlefields") alloc] initWithInterface:@"en1" prefix:nil gameID:nil];
+        [self setField:field];
     }
     
     return self;
@@ -26,11 +34,18 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)theNotification
 {
-    id a = [[NSClassFromString(@"BFBBattlefields") alloc] initWithInterface:@"en" prefix:@"aaaa:bbbb:cccc:dddd" gameID:@"1234"];
-    NSLog(@"AAA %@", [a class]);
-    
-    NSLog(@"%@", [a gamePrefix]);
-    
-    [[self prefixLabel] setStringValue:[a gamePrefix]];
+    [[self yourPrefixLabel] setStringValue:[NSString stringWithFormat:@"Your Prefix: %@", [[self field] interfacePrefix]]];
+    [[self yourIDLabel] setStringValue:[NSString stringWithFormat:@"ID: %@", [[self field] gameID]]];
+}
+
+- (IBAction)startGame:(id)sender;
+{
+    NSString *prefix = [[self theirPrefixField] stringValue];
+    NSString *gameID = [[self theirIDField] stringValue];
+
+    NSLog(@"Field is: %@", [self field]);
+    [[self statusLabel] setStringValue:@"Setting up.."];
+    [[self field] setUp];
+    [[self statusLabel] setStringValue:@"Done"];
 }
 @end

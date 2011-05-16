@@ -8,7 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BFAppDelegate : NSObject
+@interface BFAppDelegate : NSObject {
+    NSTextField *statusLabel;
+    NSTextField *yourIDLabel;
+    NSTextField *yourPrefixLabel;
+}
+
+
 @property (retain) NSWindow *window;
-@property (retain) IBOutlet NSTextField *prefixLabel;
+@property (assign) IBOutlet NSTextField *statusLabel;
+
+@property (retain) IBOutlet NSTextField *theirIDField;
+@property (retain) IBOutlet NSTextField *theirPrefixField;
+@property (assign) IBOutlet NSTextField *yourIDLabel;
+@property (assign) IBOutlet NSTextField *yourPrefixLabel;
+
+- (IBAction)startGame:(id)sender;
 @end

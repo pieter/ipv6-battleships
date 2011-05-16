@@ -36,4 +36,12 @@ module Network
   def self.firewall_flush
     `sudo ip6fw -f flush`
   end
+
+  def self.v6_prefix(interface)
+    address = `ifconfig #{interface} | grep prefixlen | grep -v ' fe' | head -1`
+    if address =~ / (([a-z0-f]{1,4}:){4,4})/
+      return $1[0..-2]
+    end
+    return nil
+  end
 end
