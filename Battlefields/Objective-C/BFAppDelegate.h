@@ -7,12 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BFGrid.h"
 
-@interface BFAppDelegate : NSObject {
+@interface BFAppDelegate : NSObject <BFGridDelegate> {
     NSTextField *statusLabel;
-    NSMatrix *yourGrid;
+    
+    // Players' own stuff
+    BFGrid *yourGrid;
     NSTextField *yourIDLabel;
     NSTextField *yourPrefixLabel;
+    
+    // Enemy stuff
+    BFGrid *theirGrid;
+    BFGridState theirState[100];
 }
 
 

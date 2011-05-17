@@ -17,6 +17,7 @@
 		F5A9472C137EEA63005E7739 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5A9472A137EEA63005E7739 /* MainMenu.xib */; };
 		F5A9472F137EEA63005E7739 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = F5A9472E137EEA63005E7739 /* rb_main.rb */; };
 		F5A94741137EEFE9005E7739 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = F5A94740137EEFE9005E7739 /* lib */; };
+		F5E2D09A138313E9006C2973 /* BFGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E2D099138313E9006C2973 /* BFGrid.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		F5A9472B137EEA63005E7739 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F5A9472E137EEA63005E7739 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		F5A94740137EEFE9005E7739 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = SOURCE_ROOT; };
+		F5E2D098138313E9006C2973 /* BFGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFGrid.h; sourceTree = "<group>"; };
+		F5E2D099138313E9006C2973 /* BFGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFGrid.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 				F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */,
 				F50514541381C80F00726374 /* BFGridCell.h */,
 				F50514551381C80F00726374 /* BFGridCell.m */,
+				F5E2D098138313E9006C2973 /* BFGrid.h */,
+				F5E2D099138313E9006C2973 /* BFGrid.m */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				F5A94727137EEA63005E7739 /* main.m in Sources */,
 				F57FAA3C137EF3200065CC84 /* BFAppDelegate.m in Sources */,
 				F50514561381C80F00726374 /* BFGridCell.m in Sources */,
+				F5E2D09A138313E9006C2973 /* BFGrid.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

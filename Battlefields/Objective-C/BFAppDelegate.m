@@ -8,11 +8,15 @@
 
 #import "BFAppDelegate.h"
 #import "BFBBattlefields.h"
+
+#import "BFGrid.h"
 #import "BFGridCell.h"
 
 @interface BFAppDelegate ()
-
 @property (retain) BFBBattlefields *field;
+
+- (void)setUpGrid;
+
 @end
 
 @implementation BFAppDelegate
@@ -29,6 +33,7 @@
     if (self) {
         BFBBattlefields *field = [[NSClassFromString(@"BFBBattlefields") alloc] initWithInterface:@"en1" prefix:nil gameID:nil];
         [self setField:field];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shipLookupDidFinishNotification:) name:BFBBattlefieldsHasShipCheckCompleteNotification object:field];
     }
     
     return self;
@@ -38,16 +43,29 @@
 {
     [NSApp setPresentationOptions:[NSApp presentationOptions] | NSApplicationPresentationFullScreen];
     [[self window] setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+
+    // Set up label and prefix
     [[self yourPrefixLabel] setStringValue:[NSString stringWithFormat:@"Your Prefix: %@", [[self field] interfacePrefix]]];
     [[self yourIDLabel] setStringValue:[NSString stringWithFormat:@"ID: %@", [[self field] gameID]]];
+
+    [self setUpGrid];
+}
+
+- (void)setUpGrid;
+{
+    id oldGrid = [self yourGrid];
     
-    NSLog(@"Creating grid. Old view: %@ frame: %@", [self yourGrid], NSStringFromRect([[self yourGrid] frame]));
-    NSMatrix *grid = [[NSMatrix alloc] initWithFrame:[[self yourGrid] frame] mode:NSHighlightModeMatrix cellClass:[BFGridCell class] numberOfRows:10 numberOfColumns:10];
-    [grid setCellSize:NSMakeSize(19, 19)];
-    [grid setTarget:self];
-    [grid setAction:@selector(gridClicked:)];
-    [[[self yourGrid] superview] replaceSubview:[self yourGrid] with:grid];
-    [self setYourGrid:grid];
+    BFGrid *newGrid = [[BFGrid alloc] initWithFrame:[oldGrid frame] delegate:self];
+    [newGrid setTarget:self];
+    [newGrid setAction:@selector(gridClicked:)];
+
+    [[oldGrid superview] replaceSubview:oldGrid with:newGrid];
+    [self setYourGrid:newGrid];
+    
+    // Set up state
+    for (size_t i = 0; i < 100; ++i) {
+        theirState[i] = BFGridStateUnknown;
+    }
 }
 
 - (IBAction)startGame:(id)sender;
@@ -74,7 +92,20 @@
     NSNumber *x = [NSNumber numberWithInteger:row];
     NSNumber *y = [NSNumber numberWithInteger:column];
     NSLog(@"Their address: %@", [[self field] theirAddressForX:x Y:y]);
-    id isShip = [[self field] opponentHasShipAtX:x Y:y];
-    NSLog(@"Is available: %@", isShip);
+    [[self field] opponentHasShipAtX:x Y:y];
+}
+
+- (void)shipLookupDidFinishNotification:(NSNotification *)theNotification;
+{
+    NSNumber *isShip = [[theNotification userInfo] objectForKey:@"isShip"];
+    NSInteger x = [[[theNotification userInfo] objectForKey:@"x"] integerValue];
+    NSInteger y = [[[theNotification userInfo] objectForKey:@"y"] integerValue];
+    theirState[x + 10 * y] = [isShip boolValue] ? BFGridStateShip : BFGridStateEmpty;
+    [[self yourGrid] setNeedsDisplay];
+
+}
+- (BFGridState)stateForCellAtX:(NSInteger)x Y:(NSInteger)y;
+{
+    return theirState[x + 10 *y];
 }
 @end
