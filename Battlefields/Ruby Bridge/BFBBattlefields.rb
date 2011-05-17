@@ -12,6 +12,7 @@ class BFBBattlefields
 
     def initWithInterface(interface, prefix: prefix, gameID:gameID)
         initialize
+        @queue = Dispatch::Queue.new("nl.frim.Battlefields.queue")
         @battlefield = Battlefields.new(interface, prefix, gameID)
         self
     end
@@ -25,11 +26,11 @@ class BFBBattlefields
     end
     
     def interfacePrefix
-        @battlefield.own_prefix
+        @battlefield.our_prefix
     end
     
     def gameID
-       @battlefield.own_game_id 
+       @battlefield.our_game_id 
     end
 
     def setUp
@@ -52,6 +53,13 @@ class BFBBattlefields
     end
     
     def opponentHasShipAtX(x, Y:y)
-        @battlefield.opponent_coordinate_is_ship(x, y)
+        @queue.async do
+            is_ship = @battlefield.opponent_coordinate_is_ship(x, y)
+            Dispatch::Queue.main.async do
+                userInfo = {"x" => x, "y" => y, "isShip" => is_ship }
+                NSNotificationCenter.defaultCenter.postNotificationName("BFBBattlefieldsHasShipCheckCompleteNotification", object:self, userInfo:userInfo)
+            end
+        end
     end
+    
 end

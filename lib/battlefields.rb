@@ -26,7 +26,7 @@ class Battlefields
   # Address creation
   def cleanup
     # Remove any old IPv6 addresses
-    Network.addresses(@interface, "#{@own_prefix}:#{GAME_PREFIX}").each do |address|
+    Network.addresses(@interface, "#{@our_net_prefix}:#{GAME_PREFIX}").each do |address|
       Network.remove_address(@interface, address)
     end
     # Remove any old firewire rules

@@ -6,6 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#define BFBBattlefieldsHasShipCheckCompleteNotification @"BFBBattlefieldsHasShipCheckCompleteNotification"
+
 @interface BFBBattlefields : NSObject 
 
 @property (retain, readonly) NSString *interfacePrefix;
