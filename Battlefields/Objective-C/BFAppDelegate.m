@@ -36,6 +36,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)theNotification
 {
+    [NSApp setPresentationOptions:[NSApp presentationOptions] | NSApplicationPresentationFullScreen];
+    [[self window] setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
     [[self yourPrefixLabel] setStringValue:[NSString stringWithFormat:@"Your Prefix: %@", [[self field] interfacePrefix]]];
     [[self yourIDLabel] setStringValue:[NSString stringWithFormat:@"ID: %@", [[self field] gameID]]];
     

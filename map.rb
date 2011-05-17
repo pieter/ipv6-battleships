@@ -2,13 +2,11 @@
 require 'lib/battlefields'
 require 'lib/network'
 
-PREFIX = "2001:470:1f15:1372"
-INTERFACE = "en1"
-
-bf = Battlefields.new(INTERFACE, PREFIX, "1234")
+bf = Battlefields.new("en1")
+bf.set_opponent(bf.our_net_prefix, 6975)
 
 m = 0.upto(99).map { |i|
-  address = bf.address_for_coordinate(i)
+  address = bf.their_address_for_coordinate(i)
   puts address
   Network.check_address(address) ? "1" : "0"
 }
