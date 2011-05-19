@@ -26,11 +26,11 @@ class BFBBattlefields
     end
     
     def interfacePrefix
-        @battlefield.our_prefix
+        @battlefield.player.net_prefix
     end
     
     def gameID
-       @battlefield.our_game_id 
+       @battlefield.player.game_id 
     end
 
     def setUp
@@ -45,11 +45,11 @@ class BFBBattlefields
     end
     
     def addressForX(x, Y: y)
-        @battlefield.address_for_coordinate(x, y);
+        @battlefield.player.address_for_coordinate(x, y);
     end
 
     def theirAddressForX(x, Y: y)
-        @battlefield.their_address_for_coordinate(x, y);
+        @battlefield.opponent.address_for_coordinate(x, y);
     end
     
     def opponentHasShipAtX(x, Y:y)
