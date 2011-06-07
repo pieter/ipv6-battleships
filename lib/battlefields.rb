@@ -37,9 +37,8 @@ class Battlefields
     
     def coordinate_to_suffix(x, y)
       unless y # If we don't have an y, then x = y * 10 + x, so we need to extract that
-        z = x / 10
-        y = x - z * 10
-        x = z
+        y = x / 10
+        x = x % 10
       end
 
       # We add an f here so we can differ between this and the control address.
@@ -49,7 +48,7 @@ class Battlefields
     
   end
   
-  attr_reader :player, :opponent, :interface
+  attr_reader :player, :opponent, :interface, :board
 
   def initialize(interface, prefix = nil, game_id = nil)
     @interface = interface

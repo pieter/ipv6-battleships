@@ -53,6 +53,10 @@ class BFBBattlefields
         @battlefield.opponent.address_for_coordinate(x, y);
     end
     
+    def playerHasShipAtX(x, Y:y)
+        @battlefield.board[10*y + x]
+    end
+
     def opponentHasShipAtX(x, Y:y)
         @queue.async do
             is_ship = @battlefield.opponent_coordinate_is_ship(x, y)

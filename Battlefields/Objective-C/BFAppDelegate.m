@@ -59,7 +59,7 @@ static NSString * const INTERFACE = @"en1";
     // Set up state
     for (size_t i = 0; i < 100; ++i) {
         theirState[i] = BFGridStateUnknown;
-        yourState[i] = BFGridStateEmpty;
+        yourState[i] = BFGridStateUnknown;
     }
 
     // Set up your grid
@@ -85,13 +85,21 @@ static NSString * const INTERFACE = @"en1";
     NSString *theirPrefix = [[self theirPrefixField] stringValue];
     NSString *theirGameID = [[self theirIDField] stringValue];
     [[self field] setOpponentPrefix:theirPrefix gameID:[NSNumber numberWithInt:[theirGameID intValue]]];
-    NSLog(@"Field is: %@. Opponent is %@/%@", [self field], theirPrefix, theirGameID);
     [self  addLogMessage:@"Setting up the game"];
     [[self field] performSelector:@selector(setUp) withObject:nil afterDelay:0.1];
-    [self performSelector:@selector(addLogMessage:) withObject:@"Done" afterDelay:0.1];
-    [[self field] monitorICMP:self];
+    [self performSelector:@selector(setUpFinished) withObject:nil afterDelay:0.1];
 }
 
+- (void)setUpFinished;
+{
+    [self addLogMessage:@"Ready to play the game"];
+    [[self field] monitorICMP:self];
+    for (size_t i = 0; i < 100; ++i) {
+        yourState[i] = [[[self field] playerHasShipAtX:[NSNumber numberWithInteger:i % 10] Y:[NSNumber numberWithInteger:i / 10]] boolValue] ? BFGridStateShip : BFGridStateEmpty;
+    }
+    [[self yourGrid] setNeedsDisplay:TRUE];
+
+}
 - (IBAction)stopGame:(id)sender {
     [[self field] cleanUp];
 }
@@ -99,13 +107,12 @@ static NSString * const INTERFACE = @"en1";
 - (IBAction)gridClicked:(id)sender;
 {
     NSInteger row, column;
-    [[self yourGrid] getRow:&row column:&column ofCell:[[self yourGrid] selectedCell]];
-    
-    NSLog(@"Requesting state of other player at %ld , %ld", row, column);
+    [[self theirGrid] getRow:&row column:&column ofCell:[[self theirGrid] selectedCell]];
+    [self addLogMessage:[NSString stringWithFormat:@"Requesting state of other player at %ld , %ld", row, column]];
     NSNumber *x = [NSNumber numberWithInteger:row];
     NSNumber *y = [NSNumber numberWithInteger:column];
-    NSLog(@"Their address: %@", [[self field] theirAddressForX:x Y:y]);
-    [[self field] opponentHasShipAtX:x Y:y];
+    [self addLogMessage:[NSString stringWithFormat:@"Their address: %@", [[self field] theirAddressForX:x Y:y]]];
+    [[[self field] opponentHasShipAtX:x Y:y] boolValue];
 }
 
 - (void)ICMPMonitor:(id)theMonitor didLog:(NSString *)theLine;
@@ -124,11 +131,12 @@ static NSString * const INTERFACE = @"en1";
     NSInteger x = [[[theNotification userInfo] objectForKey:@"x"] integerValue];
     NSInteger y = [[[theNotification userInfo] objectForKey:@"y"] integerValue];
     theirState[x + 10 * y] = [isShip boolValue] ? BFGridStateShip : BFGridStateEmpty;
-    [[self yourGrid] setNeedsDisplay];
+    [[self theirGrid] setNeedsDisplay];
 
 }
 - (BFGridState)stateForGrid:(BFGrid *)theGrid cellAtX:(NSInteger)x Y:(NSInteger)y;
 {
     return theGrid == [self yourGrid] ? yourState[x + 10 *y] : theirState[x + 10 *y];
 }
+
 @end
