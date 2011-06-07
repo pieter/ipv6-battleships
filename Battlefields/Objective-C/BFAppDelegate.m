@@ -56,16 +56,22 @@ static NSString * const INTERFACE = @"en1";
 
 - (void)setUpGrid;
 {
-    NSLog(@"Superview: %@ bounds: %@ frame: %@", [self yourGridSuperview], NSStringFromRect([[self yourGridSuperview] bounds]), NSStringFromRect([[self yourGridSuperview] frame]));
-    [self setYourGrid:[[BFGrid alloc] initWithFrame:[[self yourGridSuperview] bounds] delegate:self]]; 
-    [[self yourGridSuperview] addSubview:[self yourGrid]];
-    [[self yourGrid] setTarget:self];
-    [[self yourGrid] setAction:@selector(gridClicked:)];
-
     // Set up state
     for (size_t i = 0; i < 100; ++i) {
         theirState[i] = BFGridStateUnknown;
+        yourState[i] = BFGridStateEmpty;
     }
+
+    // Set up your grid
+    [self setYourGrid:[[BFGrid alloc] initWithFrame:[[self yourGridSuperview] bounds] delegate:self]]; 
+    [[self yourGridSuperview] addSubview:[self yourGrid]];
+
+    // Set up their grid
+    [self setTheirGrid:[[BFGrid alloc] initWithFrame:[[self theirGridSuperview] bounds] delegate:self]]; 
+    [[self theirGridSuperview] addSubview:[self theirGrid]];
+    // Their grid needs to be clickable
+    [[self theirGrid] setTarget:self];
+    [[self theirGrid] setAction:@selector(gridClicked:)];    
 }
 
 - (void)addLogMessage:(NSString *)theMessage;
@@ -121,8 +127,8 @@ static NSString * const INTERFACE = @"en1";
     [[self yourGrid] setNeedsDisplay];
 
 }
-- (BFGridState)stateForCellAtX:(NSInteger)x Y:(NSInteger)y;
+- (BFGridState)stateForGrid:(BFGrid *)theGrid cellAtX:(NSInteger)x Y:(NSInteger)y;
 {
-    return theirState[x + 10 *y];
+    return theGrid == [self yourGrid] ? yourState[x + 10 *y] : theirState[x + 10 *y];
 }
 @end

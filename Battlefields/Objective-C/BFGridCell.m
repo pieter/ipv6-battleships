@@ -26,7 +26,7 @@
     BFGrid *grid = (BFGrid *)controlView;
     NSInteger row = 0, col = 0;
     [grid getRow:&row column:&col ofCell:self];
-    BFGridState state = [[grid delegate] stateForCellAtX:row Y:col];
+    BFGridState state = [[grid delegate] stateForGrid:grid cellAtX:row Y:col];
     NSColor *bgColor = nil;
     switch (state) {
         case BFGridStateEmpty:

@@ -23,5 +23,5 @@ typedef enum {
 @end
 
 @protocol BFGridDelegate <NSObject>
-- (BFGridState)stateForCellAtX:(NSInteger)x Y:(NSInteger)y;
+- (BFGridState)stateForGrid:(BFGrid *)theGrid cellAtX:(NSInteger)x Y:(NSInteger)y;
 @end
