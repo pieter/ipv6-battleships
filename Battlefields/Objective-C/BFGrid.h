@@ -11,15 +11,19 @@
 @protocol BFGridDelegate;
 
 typedef enum {
-    BFGridStateUnknown,
-    BFGridStateShip,
-    BFGridStateEmpty
+    BFGridStateEmpty = 0,
+    BFGridStateHit,
+    BFGridStateMiss,
 } BFGridState;
 
 @interface BFGrid : NSMatrix
 
 - (id)initWithFrame:(NSRect)theFrame delegate:(id<BFGridDelegate>)theDelegate;
+- (id)initWithFrame:(NSRect)theFrame ships:(NSArray *)theShips delegate:(id<BFGridDelegate>)theDelegate;
+
 @property (readonly, assign) id<BFGridDelegate> delegate;
+@property (retain) NSArray *ships;
+
 @end
 
 @protocol BFGridDelegate <NSObject>

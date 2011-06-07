@@ -48,7 +48,7 @@ class Battlefields
     
   end
   
-  attr_reader :player, :opponent, :interface, :board
+  attr_reader :player, :opponent, :interface, :board, :ships
 
   def initialize(interface, prefix = nil, game_id = nil)
     @interface = interface
@@ -101,7 +101,34 @@ class Battlefields
 
   # Generate a random grid with TRUE / FALSE
   def generate_board
-    @board = 0.upto(BOARD_SIZE * BOARD_SIZE - 1).map { rand >= 0.5 }
+    @ships = [
+      # Position, size, orientation (vertical (down) = true, horizontal (right) = false)
+      [[0,0], 2, false],
+      [[4,0], 3, true],
+      [[6,0], 4, false],
+      [[0,2], 4, true],
+      [[6,2], 3, false],
+      [[9,2], 2, true],
+      [[5,5], 2, true],
+      [[9,5], 3, true],
+      [[0,7], 2, false],
+      [[4,9], 6, false]
+    ]
+    
+    # Generate the board based on the ships
+    
+    # Default to everything false
+    @board = 0.upto(BOARD_SIZE * BOARD_SIZE - 1).map { false }
+    @ships.each do |pos, size, vertical|
+      dx = vertical ? 0 : 1
+      dy = vertical ? 1 : 0
+      0.upto(size - 1) do |i|
+        x = pos[0] + (dx * i)
+        y = pos[1] + (dy * i)
+        puts "x: #{x} y: #{y}"
+        @board[(y * 10) + x] = true
+      end
+    end
   end
 
   def board_rep

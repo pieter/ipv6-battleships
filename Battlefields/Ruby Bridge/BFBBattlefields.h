@@ -12,6 +12,7 @@
 
 @property (retain, readonly) NSString *interfacePrefix;
 @property (retain, readonly) NSNumber *gameID;
+@property (retain, readonly) NSArray *ships;
 
 + (NSString *)gamePrefix; // returns 'baba', the prefix used for this Battlefields game
 

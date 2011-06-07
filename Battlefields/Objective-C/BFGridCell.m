@@ -21,26 +21,43 @@
     return self;
 }
 
+- (BFGridState)stateForGrid:(BFGrid *)theGrid;
+{
+    NSInteger row = 0, col = 0;
+    [theGrid getRow:&row column:&col ofCell:self];
+    return [[theGrid delegate] stateForGrid:theGrid cellAtX:col Y:row];
+}
+
+- (void)drawHitWithFrame:(NSRect)cellFrame inGrid:(BFGrid *)theGrid;
+{
+    BFGridState state = [self stateForGrid:theGrid];
+    NSColor *bgColor = nil;
+    
+    switch (state) {
+        case BFGridStateMiss:
+            bgColor = [NSColor redColor];
+            break;
+        case BFGridStateHit:
+            bgColor = [NSColor greenColor];
+            break;
+        default:
+            break;
+    }
+    if (!bgColor)
+        return;
+
+    [bgColor set];
+    NSRectFill(cellFrame);
+}
+
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView;
 {
     BFGrid *grid = (BFGrid *)controlView;
-    NSInteger row = 0, col = 0;
-    [grid getRow:&row column:&col ofCell:self];
-    BFGridState state = [[grid delegate] stateForGrid:grid cellAtX:row Y:col];
-    NSColor *bgColor = nil;
-    switch (state) {
-        case BFGridStateEmpty:
-            bgColor = [NSColor blueColor];
-            break;
-        case BFGridStateShip:
-            bgColor = [NSColor greenColor];
-            break;
-        case BFGridStateUnknown:
-            bgColor = [NSColor grayColor];
-            break;
-    }
-    [bgColor set];
-    NSRectFill(cellFrame);
+    
+    // Draw the ship, if necessary
+    
+    // Draw the hit
+    [self drawHitWithFrame:NSInsetRect(cellFrame, 5, 5) inGrid:grid];
 }
 
 @end
