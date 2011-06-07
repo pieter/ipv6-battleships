@@ -17,7 +17,7 @@ class Battlefields
     # * The game prefix is the net prefix + the game prefix Battlefields uses
     # * The full prefix is the net prefix + game prefix + game id, and can be used to identify this specific game
     
-    attr_reader :net_prefix
+      attr_reader :net_prefix, :game_id
 
     def game_prefix
       net_prefix + ":" + GAME_PREFIX
@@ -61,7 +61,7 @@ class Battlefields
     @opponent = Player.new(prefix, game_id)
     
     # ??? Shortcut to avoid unnecessary NDP requests.
-    `sudo route add -inet6 #{@opponent.full_prefix}::f000 -prefixlen 114 #{@opponent.control_address}`
+    # `sudo route add -inet6 #{@opponent.full_prefix}::f000 -prefixlen 114 #{@opponent.control_address}`
   end
 
   # Address creation
