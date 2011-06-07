@@ -15,8 +15,8 @@ module Network
     `sudo ifconfig #{interface} inet6 alias #{address}`
   end
 
-  # Note: this is very shaky AND SLOW!
   def self.check_address(address, source_address)
+    STDERR.puts("sudo ping6 -S#{source_address} -v -i1 -c1 #{address} 2>&1")
     IO.popen("sudo ping6 -S#{source_address} -v -i1 -c1 #{address} 2>&1") { |io|
       while line = io.gets
         if line =~ /ret=-1/ || line =~ /Destination Administratively Unreachable/
@@ -44,4 +44,17 @@ module Network
     end
     return nil
   end
+  
+  def self.monitor_icmp(interface, prefix)
+    command = "sudo tcpdump -l -i #{interface} icmp6 2>&1"
+    # STDERR.puts("Runnig command: #{command}")
+    IO.popen(command) do |io|
+      while line = io.gets
+          next unless line =~ /#{prefix}/
+          next if line =~ /neighbor/
+        yield line.strip
+      end
+    end
+  end
+  
 end

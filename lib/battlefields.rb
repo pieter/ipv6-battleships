@@ -49,7 +49,7 @@ class Battlefields
     
   end
   
-  attr_reader :player, :opponent
+  attr_reader :player, :opponent, :interface
 
   def initialize(interface, prefix = nil, game_id = nil)
     @interface = interface
@@ -90,6 +90,7 @@ class Battlefields
 
   def add_firewall_rules
     `sudo ip6fw add 2000 accept ipv6-icmp from any to #{@player.full_prefix}::/96`
+    `sudo ip6fw add 2001 accept ipv6-icmp from #{@player.full_prefix}::/96 to any`
     @board.each_with_index do |has_ship, index|
       unless has_ship
         command = "sudo ip6fw add 1%03i unreach admin ipv6-icmp from any to %s" % [index, @player.address_for_coordinate(index)]
