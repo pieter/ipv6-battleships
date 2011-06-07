@@ -22,7 +22,7 @@ static NSString * const INTERFACE = @"en1";
 
 @implementation BFAppDelegate
 @synthesize statusLabel;
-@synthesize yourGrid;
+@synthesize yourGrid, theirGrid, yourGridSuperview, theirGridSuperview;
 @synthesize logView;
 @synthesize yourIDLabel;
 @synthesize yourPrefixLabel;
@@ -56,15 +56,12 @@ static NSString * const INTERFACE = @"en1";
 
 - (void)setUpGrid;
 {
-    id oldGrid = [self yourGrid];
-    
-    BFGrid *newGrid = [[BFGrid alloc] initWithFrame:[oldGrid frame] delegate:self];
-    [newGrid setTarget:self];
-    [newGrid setAction:@selector(gridClicked:)];
+    NSLog(@"Superview: %@ bounds: %@ frame: %@", [self yourGridSuperview], NSStringFromRect([[self yourGridSuperview] bounds]), NSStringFromRect([[self yourGridSuperview] frame]));
+    [self setYourGrid:[[BFGrid alloc] initWithFrame:[[self yourGridSuperview] bounds] delegate:self]]; 
+    [[self yourGridSuperview] addSubview:[self yourGrid]];
+    [[self yourGrid] setTarget:self];
+    [[self yourGrid] setAction:@selector(gridClicked:)];
 
-    [[oldGrid superview] replaceSubview:oldGrid with:newGrid];
-    [self setYourGrid:newGrid];
-    
     // Set up state
     for (size_t i = 0; i < 100; ++i) {
         theirState[i] = BFGridStateUnknown;
@@ -86,7 +83,7 @@ static NSString * const INTERFACE = @"en1";
     [self  addLogMessage:@"Setting up the game"];
     [[self field] performSelector:@selector(setUp) withObject:nil afterDelay:0.1];
     [self performSelector:@selector(addLogMessage:) withObject:@"Done" afterDelay:0.1];
-
+    [[self field] monitorICMP:self];
 }
 
 - (IBAction)stopGame:(id)sender {
@@ -103,6 +100,16 @@ static NSString * const INTERFACE = @"en1";
     NSNumber *y = [NSNumber numberWithInteger:column];
     NSLog(@"Their address: %@", [[self field] theirAddressForX:x Y:y]);
     [[self field] opponentHasShipAtX:x Y:y];
+}
+
+- (void)ICMPMonitor:(id)theMonitor didLog:(NSString *)theLine;
+{
+    [self addLogMessage:theLine];
+}
+
+- (void)ICMPMonitor:(id)theMonitor monitoredOpponentRequestingX:(NSNumber *)theX Y:(NSNumber *)theY;
+{
+    [self addLogMessage:[NSString stringWithFormat:@"BOOM!!! The opponent did X:%@ Y:%@", theX, theY]];
 }
 
 - (void)shipLookupDidFinishNotification:(NSNotification *)theNotification;

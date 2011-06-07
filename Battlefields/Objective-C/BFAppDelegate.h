@@ -11,22 +11,27 @@
 
 @interface BFAppDelegate : NSObject <BFGridDelegate> {
     NSTextField *statusLabel;
-    
-    // Players' own stuff
-    BFGrid *yourGrid;
     NSTextView *logView;
     NSTextField *yourIDLabel;
     NSTextField *yourPrefixLabel;
     
-    // Enemy stuff
+    // Players' own stuff
+    BFGrid *yourGrid;
     BFGrid *theirGrid;
+    
+    NSView *yourGridSuperview;
+    NSView *theirGridSuperview;
+
+    // Enemy stuff
     BFGridState theirState[100];
+    BFGridState yourState[100];
+    
+    
 }
 
 
 @property (retain) NSWindow *window;
 @property (assign) IBOutlet NSTextField *statusLabel;
-@property (assign) IBOutlet NSMatrix *yourGrid;
 @property (assign) IBOutlet NSTextView *logView;
 
 @property (retain) IBOutlet NSTextField *theirIDField;
@@ -34,8 +39,18 @@
 @property (assign) IBOutlet NSTextField *yourIDLabel;
 @property (assign) IBOutlet NSTextField *yourPrefixLabel;
 
+@property (assign) IBOutlet NSView *yourGridSuperview;
+@property (assign) IBOutlet NSView *theirGridSuperview;
+
+@property (assign) BFGrid *yourGrid;
+@property (assign) BFGrid *theirGrid;
+
 - (IBAction)startGame:(id)sender;
 - (IBAction)stopGame:(id)sender;
 
 - (IBAction)gridClicked:(id)sender;
+
+// ICMP feedback data
+- (void)ICMPMonitor:(id)theMonitor didLog:(NSString *)theLine;
+- (void)ICMPMonitor:(id)theMonitor monitoredOpponentRequestingX:(NSNumber *)theX Y:(NSNumber *)theY;
 @end

@@ -13,6 +13,7 @@ class BFBBattlefields
     def initWithInterface(interface, prefix: prefix, gameID:gameID)
         initialize
         @queue = Dispatch::Queue.new("nl.frim.Battlefields.queue")
+        @monitorQueue = Dispatch::Queue.new("nl.frim.Battlefields.tcpdumpqueue")
         @battlefield = Battlefields.new(interface, prefix, gameID)
         self
     end
@@ -62,4 +63,22 @@ class BFBBattlefields
         end
     end
     
+    def monitorICMP(delegate)
+        @monitorQueue.async do
+            Network.monitor_icmp(@battlefield.interface, "2") do |line|
+                Dispatch::Queue.main.async { delegate.ICMPMonitor(self, didLog:line) }
+
+                if line =~ /^.* IP6 ([a-f0-9:]+) > ([a-f0-9:]+): ICMP6, echo request/
+                    from = $1
+                    to = $2
+                    
+                    if (from == @battlefield.opponent.control_address) && (to =~ /.*f([0-9])0([0-9])$/)
+                        x = $1
+                        y = $2
+                        Dispatch::Queue.main.async { delegate.ICMPMonitor(self, monitoredOpponentRequestingX:x.to_i, Y:y.to_i) }
+                    end
+                end
+            end
+        end
+    end
 end

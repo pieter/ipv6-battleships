@@ -26,4 +26,7 @@
 - (NSString *)addressForX:(NSNumber *)theX Y:(NSNumber *)theY;
 - (NSString *)theirAddressForX:(NSNumber *)theX Y:(NSNumber *)theY;
 - (NSNumber *)opponentHasShipAtX:(NSNumber *)theX Y:(NSNumber *)theY;
+
+- (void)monitorICMP:(id)theDelegate;
+
 @end
