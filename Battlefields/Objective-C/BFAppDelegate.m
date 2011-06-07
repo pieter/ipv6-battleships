@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+static NSString * const INTERFACE = @"en1";
 #import "BFAppDelegate.h"
 #import "BFBBattlefields.h"
 
@@ -22,6 +23,7 @@
 @implementation BFAppDelegate
 @synthesize statusLabel;
 @synthesize yourGrid;
+@synthesize logView;
 @synthesize yourIDLabel;
 @synthesize yourPrefixLabel;
 @synthesize window, theirIDField, theirPrefixField;
@@ -31,7 +33,7 @@
 {
     self = [super init];
     if (self) {
-        BFBBattlefields *field = [[NSClassFromString(@"BFBBattlefields") alloc] initWithInterface:@"en1" prefix:nil gameID:nil];
+        BFBBattlefields *field = [[NSClassFromString(@"BFBBattlefields") alloc] initWithInterface:INTERFACE prefix:nil gameID:nil];
         [self setField:field];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shipLookupDidFinishNotification:) name:BFBBattlefieldsHasShipCheckCompleteNotification object:field];
     }
@@ -47,6 +49,7 @@
     // Set up label and prefix
     [[self yourPrefixLabel] setStringValue:[NSString stringWithFormat:@"Your Prefix: %@", [[self field] interfacePrefix]]];
     [[self yourIDLabel] setStringValue:[NSString stringWithFormat:@"ID: %@", [[self field] gameID]]];
+    [[self theirPrefixField] setStringValue:[[self field] interfacePrefix]];
 
     [self setUpGrid];
 }
@@ -68,15 +71,22 @@
     }
 }
 
+- (void)addLogMessage:(NSString *)theMessage;
+{
+    NSAttributedString *newLine = [[NSAttributedString alloc] initWithString:[theMessage stringByAppendingString:@"\n"]];
+   [[[self logView] textStorage] appendAttributedString:newLine];
+}
+
 - (IBAction)startGame:(id)sender;
 {
     NSString *theirPrefix = [[self theirPrefixField] stringValue];
     NSString *theirGameID = [[self theirIDField] stringValue];
     [[self field] setOpponentPrefix:theirPrefix gameID:[NSNumber numberWithInt:[theirGameID intValue]]];
     NSLog(@"Field is: %@. Opponent is %@/%@", [self field], theirPrefix, theirGameID);
-    [[self statusLabel] setStringValue:@"Setting up.."];
-    [[self field] setUp];
-    [[self statusLabel] setStringValue:@"Done"];
+    [self  addLogMessage:@"Setting up the game"];
+    [[self field] performSelector:@selector(setUp) withObject:nil afterDelay:0.1];
+    [self performSelector:@selector(addLogMessage:) withObject:@"Done" afterDelay:0.1];
+
 }
 
 - (IBAction)stopGame:(id)sender {

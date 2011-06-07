@@ -14,6 +14,7 @@
     
     // Players' own stuff
     BFGrid *yourGrid;
+    NSTextView *logView;
     NSTextField *yourIDLabel;
     NSTextField *yourPrefixLabel;
     
@@ -26,6 +27,7 @@
 @property (retain) NSWindow *window;
 @property (assign) IBOutlet NSTextField *statusLabel;
 @property (assign) IBOutlet NSMatrix *yourGrid;
+@property (assign) IBOutlet NSTextView *logView;
 
 @property (retain) IBOutlet NSTextField *theirIDField;
 @property (retain) IBOutlet NSTextField *theirPrefixField;
