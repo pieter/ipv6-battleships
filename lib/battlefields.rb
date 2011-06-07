@@ -112,7 +112,7 @@ class Battlefields
       [[5,5], 2, true],
       [[9,5], 3, true],
       [[0,7], 2, false],
-      [[4,9], 6, false]
+      [[4,9], 5, false]
     ]
     
     # Generate the board based on the ships
@@ -125,7 +125,6 @@ class Battlefields
       0.upto(size - 1) do |i|
         x = pos[0] + (dx * i)
         y = pos[1] + (dy * i)
-        puts "x: #{x} y: #{y}"
         @board[(y * 10) + x] = true
       end
     end

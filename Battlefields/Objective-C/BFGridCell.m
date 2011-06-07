@@ -31,23 +31,22 @@
 - (void)drawHitWithFrame:(NSRect)cellFrame inGrid:(BFGrid *)theGrid;
 {
     BFGridState state = [self stateForGrid:theGrid];
-    NSColor *bgColor = nil;
+    NSImage *hitImage = nil;
     
     switch (state) {
         case BFGridStateMiss:
-            bgColor = [NSColor redColor];
+            hitImage = [NSImage imageNamed:@"miss"];
             break;
         case BFGridStateHit:
-            bgColor = [NSColor greenColor];
+            hitImage = [NSImage imageNamed:@"hit"];
             break;
         default:
             break;
     }
-    if (!bgColor)
+    if (!hitImage)
         return;
 
-    [bgColor set];
-    NSRectFill(cellFrame);
+    [hitImage drawInRect:cellFrame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 }
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView;
@@ -57,7 +56,7 @@
     // Draw the ship, if necessary
     
     // Draw the hit
-    [self drawHitWithFrame:NSInsetRect(cellFrame, 5, 5) inGrid:grid];
+    [self drawHitWithFrame:cellFrame inGrid:grid];
 }
 
 @end

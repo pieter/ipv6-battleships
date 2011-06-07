@@ -10,6 +10,19 @@
 		F50514561381C80F00726374 /* BFGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50514551381C80F00726374 /* BFGridCell.m */; };
 		F57FAA3C137EF3200065CC84 /* BFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */; };
 		F57FAA43137EF9210065CC84 /* BFBBattlefields.rb in Resources */ = {isa = PBXBuildFile; fileRef = F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */; };
+		F5997F21139EEAA0003196C8 /* attack.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F14139EEAA0003196C8 /* attack.png */; };
+		F5997F22139EEAA0003196C8 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F15139EEAA0003196C8 /* background.png */; };
+		F5997F23139EEAA0003196C8 /* hit.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F16139EEAA0003196C8 /* hit.png */; };
+		F5997F24139EEAA0003196C8 /* miss.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F17139EEAA0003196C8 /* miss.png */; };
+		F5997F25139EEAA0003196C8 /* ship_2_horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F18139EEAA0003196C8 /* ship_2_horizontal.png */; };
+		F5997F26139EEAA0003196C8 /* ship_2_vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F19139EEAA0003196C8 /* ship_2_vertical.png */; };
+		F5997F27139EEAA0003196C8 /* ship_3_horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1A139EEAA0003196C8 /* ship_3_horizontal.png */; };
+		F5997F28139EEAA0003196C8 /* ship_3_vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1B139EEAA0003196C8 /* ship_3_vertical.png */; };
+		F5997F29139EEAA0003196C8 /* ship_4_horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1C139EEAA0003196C8 /* ship_4_horizontal.png */; };
+		F5997F2A139EEAA0003196C8 /* ship_4_vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1D139EEAA0003196C8 /* ship_4_vertical.png */; };
+		F5997F2B139EEAA0003196C8 /* ship_5_horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1E139EEAA0003196C8 /* ship_5_horizontal.png */; };
+		F5997F2C139EEAA0003196C8 /* ship_5_vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1F139EEAA0003196C8 /* ship_5_vertical.png */; };
+		F5997F2D139EEAA0003196C8 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F20139EEAA0003196C8 /* target.png */; };
 		F5A9471C137EEA63005E7739 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471B137EEA63005E7739 /* Cocoa.framework */; };
 		F5A9471E137EEA63005E7739 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471D137EEA63005E7739 /* MacRuby.framework */; };
 		F5A94725137EEA63005E7739 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5A94723137EEA63005E7739 /* InfoPlist.strings */; };
@@ -27,6 +40,19 @@
 		F57FAA3B137EF3200065CC84 /* BFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFAppDelegate.m; sourceTree = "<group>"; };
 		F57FAA42137EF9210065CC84 /* BFBBattlefields.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = BFBBattlefields.rb; sourceTree = "<group>"; };
 		F57FAA44137EFB060065CC84 /* BFBBattlefields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBBattlefields.h; sourceTree = "<group>"; };
+		F5997F14139EEAA0003196C8 /* attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attack.png; sourceTree = "<group>"; };
+		F5997F15139EEAA0003196C8 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		F5997F16139EEAA0003196C8 /* hit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hit.png; sourceTree = "<group>"; };
+		F5997F17139EEAA0003196C8 /* miss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miss.png; sourceTree = "<group>"; };
+		F5997F18139EEAA0003196C8 /* ship_2_horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_2_horizontal.png; sourceTree = "<group>"; };
+		F5997F19139EEAA0003196C8 /* ship_2_vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_2_vertical.png; sourceTree = "<group>"; };
+		F5997F1A139EEAA0003196C8 /* ship_3_horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_3_horizontal.png; sourceTree = "<group>"; };
+		F5997F1B139EEAA0003196C8 /* ship_3_vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_3_vertical.png; sourceTree = "<group>"; };
+		F5997F1C139EEAA0003196C8 /* ship_4_horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_4_horizontal.png; sourceTree = "<group>"; };
+		F5997F1D139EEAA0003196C8 /* ship_4_vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_4_vertical.png; sourceTree = "<group>"; };
+		F5997F1E139EEAA0003196C8 /* ship_5_horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_5_horizontal.png; sourceTree = "<group>"; };
+		F5997F1F139EEAA0003196C8 /* ship_5_vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_5_vertical.png; sourceTree = "<group>"; };
+		F5997F20139EEAA0003196C8 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
 		F5A94717137EEA63005E7739 /* Battlefields.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Battlefields.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A9471B137EEA63005E7739 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F5A9471D137EEA63005E7739 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
@@ -76,6 +102,26 @@
 			path = "Ruby Bridge";
 			sourceTree = "<group>";
 		};
+		F5997F13139EEAA0003196C8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F5997F14139EEAA0003196C8 /* attack.png */,
+				F5997F15139EEAA0003196C8 /* background.png */,
+				F5997F16139EEAA0003196C8 /* hit.png */,
+				F5997F17139EEAA0003196C8 /* miss.png */,
+				F5997F18139EEAA0003196C8 /* ship_2_horizontal.png */,
+				F5997F19139EEAA0003196C8 /* ship_2_vertical.png */,
+				F5997F1A139EEAA0003196C8 /* ship_3_horizontal.png */,
+				F5997F1B139EEAA0003196C8 /* ship_3_vertical.png */,
+				F5997F1C139EEAA0003196C8 /* ship_4_horizontal.png */,
+				F5997F1D139EEAA0003196C8 /* ship_4_vertical.png */,
+				F5997F1E139EEAA0003196C8 /* ship_5_horizontal.png */,
+				F5997F1F139EEAA0003196C8 /* ship_5_vertical.png */,
+				F5997F20139EEAA0003196C8 /* target.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		F5A9470C137EEA63005E7739 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +151,7 @@
 		F5A94720137EEA63005E7739 /* Battlefields */ = {
 			isa = PBXGroup;
 			children = (
+				F5997F13139EEAA0003196C8 /* Images */,
 				F57FAA3D137EF3BA0065CC84 /* Ruby Bridge */,
 				F57FAA39137EF3110065CC84 /* Objective-C */,
 				F5A94740137EEFE9005E7739 /* lib */,
@@ -211,6 +258,19 @@
 				F5A9472F137EEA63005E7739 /* rb_main.rb in Resources */,
 				F5A94741137EEFE9005E7739 /* lib in Resources */,
 				F57FAA43137EF9210065CC84 /* BFBBattlefields.rb in Resources */,
+				F5997F21139EEAA0003196C8 /* attack.png in Resources */,
+				F5997F22139EEAA0003196C8 /* background.png in Resources */,
+				F5997F23139EEAA0003196C8 /* hit.png in Resources */,
+				F5997F24139EEAA0003196C8 /* miss.png in Resources */,
+				F5997F25139EEAA0003196C8 /* ship_2_horizontal.png in Resources */,
+				F5997F26139EEAA0003196C8 /* ship_2_vertical.png in Resources */,
+				F5997F27139EEAA0003196C8 /* ship_3_horizontal.png in Resources */,
+				F5997F28139EEAA0003196C8 /* ship_3_vertical.png in Resources */,
+				F5997F29139EEAA0003196C8 /* ship_4_horizontal.png in Resources */,
+				F5997F2A139EEAA0003196C8 /* ship_4_vertical.png in Resources */,
+				F5997F2B139EEAA0003196C8 /* ship_5_horizontal.png in Resources */,
+				F5997F2C139EEAA0003196C8 /* ship_5_vertical.png in Resources */,
+				F5997F2D139EEAA0003196C8 /* target.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

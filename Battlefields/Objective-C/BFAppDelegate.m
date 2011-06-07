@@ -51,6 +51,7 @@ static NSString * const INTERFACE = @"en1";
     [[self yourIDLabel] setStringValue:[NSString stringWithFormat:@"ID: %@", [[self field] gameID]]];
     [[self theirPrefixField] setStringValue:[[self field] interfacePrefix]];
 
+    [[self window] setBackgroundColor:[NSColor colorWithCalibratedRed:66.0/255 green:39.0/255 blue:0.0 alpha:1.0]];
     [self setUpGrid];
 }
 
@@ -76,8 +77,12 @@ static NSString * const INTERFACE = @"en1";
 
 - (void)addLogMessage:(NSString *)theMessage;
 {
-    NSAttributedString *newLine = [[NSAttributedString alloc] initWithString:[theMessage stringByAppendingString:@"\n"]];
-   [[[self logView] textStorage] appendAttributedString:newLine];
+    NSMutableAttributedString *newLine = [[[NSAttributedString alloc] initWithString:[theMessage stringByAppendingString:@"\n"]] mutableCopy];
+    NSFont *font = [NSFont fontWithName:@"Courier" size:14.0];
+    if ([theMessage hasPrefix:@"The "])
+        font = [NSFont fontWithName:@"Courier" size:18.0];
+    [newLine setAttributes:[NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName] range:NSMakeRange(0, [newLine length])];
+    [[[self logView] textStorage] appendAttributedString:newLine];
 }
 
 - (IBAction)startGame:(id)sender;
@@ -120,7 +125,7 @@ static NSString * const INTERFACE = @"en1";
 
 - (void)ICMPMonitor:(id)theMonitor monitoredOpponentRequestingX:(NSNumber *)theX Y:(NSNumber *)theY;
 {
-    [self addLogMessage:[NSString stringWithFormat:@"BOOM!!! The opponent did X:%@ Y:%@", theX, theY]];
+    [self addLogMessage:[NSString stringWithFormat:@"The Opponent bombed you at X:%@ Y:%@", theX, theY]];
     BFGridState newState;
     if ([[[self field] playerHasShipAtX:theX Y:theY ] boolValue])
         newState = BFGridStateHit;

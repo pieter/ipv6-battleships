@@ -29,7 +29,7 @@
 - (id)initWithFrame:(NSRect)theFrame delegate:(id<BFGridDelegate>)theDelegate;
 {
     if ((self = [super initWithFrame:theFrame mode:NSHighlightModeMatrix cellClass:[BFGridCell class] numberOfRows:10 numberOfColumns:10])) {
-        [self setCellSize:NSMakeSize(19, 19)];
+        [self setCellSize:NSMakeSize(41, 41)];
         [self setDelegate:theDelegate];
 
         // Initialization code here.
@@ -42,7 +42,6 @@
 {
     NSInteger cellWidth = [self cellSize].width;
     if ([self ships]) {
-        NSLog(@"Should be drawing ships now...");
         for (NSArray *ship in [self ships]) {
             NSArray *position = [ship objectAtIndex:0];
             NSInteger length = [[ship objectAtIndex:1] integerValue];
@@ -52,11 +51,9 @@
             
             NSPoint start = [self cellFrameAtRow:y column:x].origin;
             NSRect shipRect = NSMakeRect(start.x, start.y, cellWidth * (vertical ? 1 : length), cellWidth * (vertical ? length : 1));
-            [[NSColor purpleColor] set];
-            NSRectFill(shipRect);
-            // [[0,0], 2, false],
-
-            
+            NSString *imageName = [NSString stringWithFormat:@"ship_%i_%@", length, vertical ? @"vertical" : @"horizontal"];
+            NSImage *shipImage = [NSImage imageNamed:imageName];
+            [shipImage drawInRect:shipRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
         }
     }
     [super drawRect:dirtyRect];
