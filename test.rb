@@ -18,4 +18,4 @@ bf.add_firewall_rules
 puts "Printing board"
 puts bf.board_rep
 
-puts "The game is now accessible at #{bf.our_prefix}"
+puts "The game is now accessible at #{bf.player.full_prefix}"

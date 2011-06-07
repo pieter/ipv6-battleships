@@ -2,9 +2,9 @@
 require 'lib/battlefields'
 require 'lib/network'
 
-bf = Battlefields.new("en1")
+bf = Battlefields.new("en1", nil, 2642)
 puts bf.player.net_prefix
-bf.set_opponent(bf.player.net_prefix, 6975)
+bf.set_opponent(bf.player.net_prefix, 2640)
 
 m = 0.upto(99).map { |i|
   address = bf.opponent.address_for_coordinate(i)
