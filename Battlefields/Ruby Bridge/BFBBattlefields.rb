@@ -45,6 +45,10 @@ class BFBBattlefields
         @battlefield.add_firewall_rules
     end
     
+    def playerStartsFirst
+        @battlefield.player.game_id < @battlefield.opponent.game_id
+    end
+    
     def cleanUp
         @battlefield.cleanup()
     end

@@ -31,4 +31,5 @@
 
 - (void)monitorICMP:(id)theDelegate;
 - (NSString *)prettifyIP:(NSString *)theIPAddress;
+- (NSNumber *)playerStartsFirst;
 @end

@@ -14,15 +14,9 @@
     BFGrid *yourGrid;
     BFGrid *theirGrid;
     
-    NSView *yourGridSuperview;
-    NSView *theirGridSuperview;
-
     // Enemy stuff
     BFGridState theirState[100];
     BFGridState yourState[100];
-    
-    
-    NSWindow *setupWindow;
 }
 
 // Setup window
@@ -37,6 +31,7 @@
 @property (assign) IBOutlet NSTextView *logView;
 @property (assign) IBOutlet NSView *yourGridSuperview;
 @property (assign) IBOutlet NSView *theirGridSuperview;
+@property (assign) IBOutlet NSImageView *attackImage;
 
 @property (assign) IBOutlet NSTextField *yourCurrentIP;
 @property (assign) IBOutlet NSTextField *theirCurrentIP;

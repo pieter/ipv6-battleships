@@ -23,6 +23,7 @@ static NSString * const INTERFACE = @"en0";
 @end
 
 @implementation BFAppDelegate
+@synthesize attackImage;
 @synthesize setupWindow;
 
 @synthesize yourGrid, theirGrid, yourGridSuperview, theirGridSuperview, yourCurrentIP, theirCurrentIP;
@@ -121,6 +122,11 @@ static NSString * const INTERFACE = @"en0";
     
     [self setOurIP: [[self field] addressForX:[NSNumber numberWithInt:0] Y:[NSNumber numberWithInt:0]]];
     [self setTheirIP: [[self field] theirAddressForX:[NSNumber numberWithInt:0] Y:[NSNumber numberWithInt:0]]];
+    
+    if ([[[self field] playerStartsFirst] boolValue]) {
+        [[self attackImage] setHidden:NO];
+    }
+    
 }
 - (IBAction)stopGame:(id)sender {
     [[self field] cleanUp];
@@ -135,6 +141,7 @@ static NSString * const INTERFACE = @"en0";
     NSNumber *y = [NSNumber numberWithInteger:row];
     [self addLogMessage:[NSString stringWithFormat:@"Their address: %@", [[self field] theirAddressForX:x Y:y]]];
     [[[self field] opponentHasShipAtX:x Y:y] boolValue];
+    [[self attackImage] setHidden:YES];
 }
 
 - (void)ICMPMonitor:(id)theMonitor didLog:(NSString *)theLine;
@@ -155,6 +162,7 @@ static NSString * const INTERFACE = @"en0";
     yourState[x + (y * 10)] = newState;
     
     [[self yourGrid] setNeedsDisplay:YES];
+    [[self attackImage] setHidden:NO];
 }
 
 - (void)shipLookupDidFinishNotification:(NSNotification *)theNotification;
