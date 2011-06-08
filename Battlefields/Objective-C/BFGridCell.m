@@ -11,6 +11,8 @@
 
 @implementation BFGridCell
 
+@synthesize isMouseOver;
+
 - (id)init
 {
     self = [super init];
@@ -28,6 +30,7 @@
     return [[theGrid delegate] stateForGrid:theGrid cellAtX:col Y:row];
 }
 
+
 - (void)drawHitWithFrame:(NSRect)cellFrame inGrid:(BFGrid *)theGrid;
 {
     BFGridState state = [self stateForGrid:theGrid];
@@ -43,8 +46,11 @@
         default:
             break;
     }
-    if (!hitImage)
-        return;
+    if (!hitImage) {
+        if (![self isMouseOver])
+            return;
+        hitImage = [NSImage imageNamed:@"target"];
+    }
 
     [hitImage drawInRect:cellFrame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
 }

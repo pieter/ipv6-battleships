@@ -10,4 +10,6 @@
 
 @interface BFGridCell : NSActionCell
 
+@property (assign, setter = setMouseOver:) BOOL isMouseOver;
+
 @end

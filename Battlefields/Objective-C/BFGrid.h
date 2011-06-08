@@ -28,4 +28,6 @@ typedef enum {
 
 @protocol BFGridDelegate <NSObject>
 - (BFGridState)stateForGrid:(BFGrid *)theGrid cellAtX:(NSInteger)x Y:(NSInteger)y;
+- (void)grid:(BFGrid *)theGrid mouseOverAtX:(NSInteger)theX Y:(NSInteger)theY;
+- (void)gridmouseOut:(BFGrid *)theGrid;
 @end

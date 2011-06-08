@@ -32,10 +32,44 @@
         [self setCellSize:NSMakeSize(41, 41)];
         [self setDelegate:theDelegate];
 
-        // Initialization code here.
+        NSTrackingArea *area = [[NSTrackingArea alloc] initWithRect:[self bounds] options:NSTrackingMouseMoved|NSTrackingMouseEnteredAndExited|NSTrackingActiveInKeyWindow owner:self userInfo:nil];
+        [self addTrackingArea:area];
     }
     
     return self;
+}
+
+- (void)mouseExited:(NSEvent *)theEvent;
+{
+    [[self delegate] gridmouseOut:self];
+
+    for (BFGridCell *cell in [self cells])
+        [cell setMouseOver:NO];
+    
+    [self setNeedsDisplay:YES];
+}
+
+- (void)mouseEntered:(NSEvent *)theEvent;
+{
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent;
+{
+    NSPoint localPoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+    NSInteger row,col;
+    [self getRow:&row column:&col forPoint:localPoint];
+    if (col < 0 || row < 0)
+        return;
+    
+    [[self delegate] grid:self mouseOverAtX:col Y:row];
+
+    if (![self ships]) {
+        BFGridCell *mouseCell = [self cellAtRow:row column:col];
+        for (BFGridCell *cell in [self cells])
+            [cell setMouseOver:(cell == mouseCell)];
+
+        [self setNeedsDisplay:YES];
+    }
 }
 
 - (void)drawRect:(NSRect)dirtyRect

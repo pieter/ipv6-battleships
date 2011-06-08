@@ -179,4 +179,37 @@ static NSString * const INTERFACE = @"en0";
     return theGrid == [self yourGrid] ? yourState[x + 10 *y] : theirState[x + 10 *y];
 }
 
+- (void)grid:(BFGrid *)theGrid mouseOverAtX:(NSInteger)theX Y:(NSInteger)theY;
+{
+    NSNumber *xNum = [NSNumber numberWithInteger:theX];
+    NSNumber *yNum = [NSNumber numberWithInteger:theY];
+    
+    if (theGrid == [self yourGrid]) {
+        [self setOurIP:[[self field] addressForX:xNum Y:yNum]];
+    } else if (theGrid == [self theirGrid]) {
+        [self setTheirIP:[[self field] theirAddressForX:xNum Y:yNum]];
+    }
+}
+
+- (void)gridmouseOut:(BFGrid *)theGrid;
+{
+    NSNumber *zero = [NSNumber numberWithInteger:0];
+    if (theGrid == [self yourGrid]) {
+        NSString *zeroIP = [[self field] addressForX:zero Y:zero];
+        if ([zeroIP length] > 4) {
+            zeroIP = [zeroIP substringToIndex:[zeroIP length] - 3];
+            zeroIP = [zeroIP stringByAppendingString:@"???"];
+        }
+        [self setOurIP:zeroIP];
+    } else if (theGrid == [self theirGrid]) {
+        NSString *zeroIP = [[self field] theirAddressForX:zero Y:zero];
+        if ([zeroIP length] > 4) {
+            zeroIP = [zeroIP substringToIndex:[zeroIP length] - 3];
+            zeroIP = [zeroIP stringByAppendingString:@"???"];
+        }
+        [self setTheirIP:zeroIP];
+    }
+    
+}
+
 @end

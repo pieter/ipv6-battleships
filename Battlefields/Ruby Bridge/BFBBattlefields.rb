@@ -54,10 +54,12 @@ class BFBBattlefields
     end
     
     def addressForX(x, Y: y)
+        return "" unless @battlefield and @battlefield.player
         @battlefield.player.address_for_coordinate(x, y);
     end
 
     def theirAddressForX(x, Y: y)
+        return "" unless @battlefield and @battlefield.opponent
         @battlefield.opponent.address_for_coordinate(x, y);
     end
     
