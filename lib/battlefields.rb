@@ -100,9 +100,33 @@ class Battlefields
   # Actual game stuff
 
   # Generate a random grid with TRUE / FALSE
-  def generate_board
-    @ships = [
-      # Position, size, orientation (vertical (down) = true, horizontal (right) = false)
+  def random_board
+    # Position, size, orientation (vertical (down) = true, horizontal (right) = false)
+   boards =  [
+      [[0,0], 2, true],
+      [[1,1], 3, false],
+      [[6,1], 3, true],
+      [[9,0], 5, true],
+      [[0,4], 3, true],
+      [[1,4], 5, false],
+      [[5,6], 3, true],
+      [[9,6], 4, true],
+      [[8,8], 2, true],
+      [[0,9], 4, false]
+    ],
+    [
+      [[0,0], 2, true],
+      [[1,0], 3, true],
+      [[6,3], 4, true],
+      [[9,2], 5, true],
+      [[0,6], 5, false],
+      [[1,8], 2, false],
+      [[6,9], 3, false],
+      [[3,8], 4, false],
+      [[7,7], 2, true],
+      [[0,3], 4, false]
+    ],
+    [
       [[0,0], 2, false],
       [[4,0], 3, true],
       [[6,0], 4, false],
@@ -114,7 +138,11 @@ class Battlefields
       [[0,7], 2, false],
       [[4,9], 5, false]
     ]
-    
+    boards[rand(boards.length)]
+  end
+  
+  def generate_board
+    @ships = random_board
     # Generate the board based on the ships
     
     # Default to everything false
