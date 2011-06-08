@@ -17,12 +17,14 @@ static NSString * const INTERFACE = @"en1";
 @property (retain) BFBBattlefields *field;
 
 - (void)setUpGrid;
+- (void)setTheirIP:(NSString *)theIPAddress;
+- (void)setOurIP:(NSString *)theIPAddress;
 
 @end
 
 @implementation BFAppDelegate
-@synthesize statusLabel;
-@synthesize yourGrid, theirGrid, yourGridSuperview, theirGridSuperview;
+
+@synthesize yourGrid, theirGrid, yourGridSuperview, theirGridSuperview, yourCurrentIP, theirCurrentIP;
 @synthesize logView;
 @synthesize yourIDLabel;
 @synthesize yourPrefixLabel;
@@ -46,23 +48,20 @@ static NSString * const INTERFACE = @"en1";
     [NSApp setPresentationOptions:[NSApp presentationOptions] | NSApplicationPresentationFullScreen];
     [[self window] setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 
-    // Set up label and prefix
+    // Set up the setup window ;)
     [[self yourPrefixLabel] setStringValue:[NSString stringWithFormat:@"Your Prefix: %@", [[self field] interfacePrefix]]];
     [[self yourIDLabel] setStringValue:[NSString stringWithFormat:@"ID: %@", [[self field] gameID]]];
     [[self theirPrefixField] setStringValue:[[self field] interfacePrefix]];
 
+    // Set up the main window
     [[self window] setBackgroundColor:[NSColor colorWithCalibratedRed:66.0/255 green:39.0/255 blue:0.0 alpha:1.0]];
+    [self setTheirIP:@""];
+    [self setOurIP:@""];
     [self setUpGrid];
 }
 
 - (void)setUpGrid;
 {
-    // Set up state
-//    for (size_t i = 0; i < 100; ++i) {
-//        theirState[i] = BFGridStateEmpty;
-//        yourState[i] = BFGridStateEmpty;
-//    }
-
     // Set up your grid
     [self setYourGrid:[[BFGrid alloc] initWithFrame:[[self yourGridSuperview] bounds] delegate:self]]; 
     [[self yourGridSuperview] addSubview:[self yourGrid]];
@@ -83,6 +82,8 @@ static NSString * const INTERFACE = @"en1";
         font = [NSFont fontWithName:@"Courier" size:18.0];
     [newLine setAttributes:[NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName] range:NSMakeRange(0, [newLine length])];
     [[[self logView] textStorage] appendAttributedString:newLine];
+    
+    [[self logView] scrollRangeToVisible:NSMakeRange([[[self logView] textStorage] length], 0)];
 }
 
 - (IBAction)startGame:(id)sender;
@@ -95,6 +96,16 @@ static NSString * const INTERFACE = @"en1";
     [self performSelector:@selector(setUpFinished) withObject:nil afterDelay:0.1];
 }
 
+- (void)setTheirIP:(NSString *)theIPAddress;
+{
+    [[self theirCurrentIP] setStringValue:[[self field] prettifyIP:theIPAddress]];
+}
+
+- (void)setOurIP:(NSString *)theIPAddress;
+{
+    [[self yourCurrentIP] setStringValue:[[self field] prettifyIP:theIPAddress]];
+}
+
 - (void)setUpFinished;
 {
     [self addLogMessage:@"Ready to play the game"];
@@ -102,6 +113,9 @@ static NSString * const INTERFACE = @"en1";
 
     [[self yourGrid] setShips:[[self field] ships]];
     [[self yourGrid] setNeedsDisplay:TRUE];
+    
+    [self setOurIP: [[self field] addressForX:[NSNumber numberWithInt:0] Y:[NSNumber numberWithInt:0]]];
+    [self setTheirIP: [[self field] theirAddressForX:[NSNumber numberWithInt:0] Y:[NSNumber numberWithInt:0]]];
 }
 - (IBAction)stopGame:(id)sender {
     [[self field] cleanUp];

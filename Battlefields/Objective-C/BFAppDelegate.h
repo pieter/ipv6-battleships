@@ -10,11 +10,6 @@
 #import "BFGrid.h"
 
 @interface BFAppDelegate : NSObject <BFGridDelegate> {
-    NSTextField *statusLabel;
-    NSTextView *logView;
-    NSTextField *yourIDLabel;
-    NSTextField *yourPrefixLabel;
-    
     // Players' own stuff
     BFGrid *yourGrid;
     BFGrid *theirGrid;
@@ -29,18 +24,20 @@
     
 }
 
-
-@property (retain) NSWindow *window;
-@property (assign) IBOutlet NSTextField *statusLabel;
-@property (assign) IBOutlet NSTextView *logView;
-
+// Setup window
 @property (retain) IBOutlet NSTextField *theirIDField;
 @property (retain) IBOutlet NSTextField *theirPrefixField;
 @property (assign) IBOutlet NSTextField *yourIDLabel;
 @property (assign) IBOutlet NSTextField *yourPrefixLabel;
 
+// Game Window
+@property (retain) NSWindow *window;
+@property (assign) IBOutlet NSTextView *logView;
 @property (assign) IBOutlet NSView *yourGridSuperview;
 @property (assign) IBOutlet NSView *theirGridSuperview;
+
+@property (assign) IBOutlet NSTextField *yourCurrentIP;
+@property (assign) IBOutlet NSTextField *theirCurrentIP;
 
 @property (assign) BFGrid *yourGrid;
 @property (assign) BFGrid *theirGrid;

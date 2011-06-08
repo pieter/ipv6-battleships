@@ -10,6 +10,10 @@ require 'lib/battlefields'
 
 class BFBBattlefields
 
+    def prettifyIP(ip_address)
+        ip_address.gsub(/::/, ":0000:").gsub(/:([0-9][0-9][0-9]):/, ":0\\1:").sub(/^(([a-f0-9]{1,4}:?){1,4}):/, "\\1\n")
+    end
+
     def initWithInterface(interface, prefix: prefix, gameID:gameID)
         initialize
         @queue = Dispatch::Queue.new("nl.frim.Battlefields.queue")

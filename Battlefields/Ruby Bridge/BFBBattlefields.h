@@ -30,5 +30,5 @@
 - (NSNumber *)playerHasShipAtX:(NSNumber *)theX Y:(NSNumber *)theY;
 
 - (void)monitorICMP:(id)theDelegate;
-
+- (NSString *)prettifyIP:(NSString *)theIPAddress;
 @end
