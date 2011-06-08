@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-static NSString * const INTERFACE = @"en1";
+static NSString * const INTERFACE = @"en0";
 #import "BFAppDelegate.h"
 #import "BFBBattlefields.h"
 
