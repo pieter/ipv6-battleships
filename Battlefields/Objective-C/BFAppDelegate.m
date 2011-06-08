@@ -23,6 +23,7 @@ static NSString * const INTERFACE = @"en1";
 @end
 
 @implementation BFAppDelegate
+@synthesize setupWindow;
 
 @synthesize yourGrid, theirGrid, yourGridSuperview, theirGridSuperview, yourCurrentIP, theirCurrentIP;
 @synthesize logView;
@@ -58,6 +59,10 @@ static NSString * const INTERFACE = @"en1";
     [self setTheirIP:@""];
     [self setOurIP:@""];
     [self setUpGrid];
+    
+    [[self setupWindow] center];
+    [[self setupWindow] makeKeyWindow];
+    [[self setupWindow] makeMainWindow];
 }
 
 - (void)setUpGrid;

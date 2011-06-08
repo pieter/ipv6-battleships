@@ -23,6 +23,7 @@
 		F5997F2B139EEAA0003196C8 /* ship_5_horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1E139EEAA0003196C8 /* ship_5_horizontal.png */; };
 		F5997F2C139EEAA0003196C8 /* ship_5_vertical.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F1F139EEAA0003196C8 /* ship_5_vertical.png */; };
 		F5997F2D139EEAA0003196C8 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F20139EEAA0003196C8 /* target.png */; };
+		F5997F30139EFCC3003196C8 /* setup_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5997F2F139EFCC3003196C8 /* setup_background.png */; };
 		F5A9471C137EEA63005E7739 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471B137EEA63005E7739 /* Cocoa.framework */; };
 		F5A9471E137EEA63005E7739 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A9471D137EEA63005E7739 /* MacRuby.framework */; };
 		F5A94725137EEA63005E7739 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5A94723137EEA63005E7739 /* InfoPlist.strings */; };
@@ -53,6 +54,7 @@
 		F5997F1E139EEAA0003196C8 /* ship_5_horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_5_horizontal.png; sourceTree = "<group>"; };
 		F5997F1F139EEAA0003196C8 /* ship_5_vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship_5_vertical.png; sourceTree = "<group>"; };
 		F5997F20139EEAA0003196C8 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
+		F5997F2F139EFCC3003196C8 /* setup_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setup_background.png; sourceTree = "<group>"; };
 		F5A94717137EEA63005E7739 /* Battlefields.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Battlefields.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A9471B137EEA63005E7739 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F5A9471D137EEA63005E7739 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
@@ -107,6 +109,7 @@
 			children = (
 				F5997F14139EEAA0003196C8 /* attack.png */,
 				F5997F15139EEAA0003196C8 /* background.png */,
+				F5997F2F139EFCC3003196C8 /* setup_background.png */,
 				F5997F16139EEAA0003196C8 /* hit.png */,
 				F5997F17139EEAA0003196C8 /* miss.png */,
 				F5997F18139EEAA0003196C8 /* ship_2_horizontal.png */,
@@ -271,6 +274,7 @@
 				F5997F2B139EEAA0003196C8 /* ship_5_horizontal.png in Resources */,
 				F5997F2C139EEAA0003196C8 /* ship_5_vertical.png in Resources */,
 				F5997F2D139EEAA0003196C8 /* target.png in Resources */,
+				F5997F30139EFCC3003196C8 /* setup_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

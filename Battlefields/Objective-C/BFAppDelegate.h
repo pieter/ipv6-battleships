@@ -22,9 +22,11 @@
     BFGridState yourState[100];
     
     
+    NSWindow *setupWindow;
 }
 
 // Setup window
+@property (assign) IBOutlet NSWindow *setupWindow;
 @property (retain) IBOutlet NSTextField *theirIDField;
 @property (retain) IBOutlet NSTextField *theirPrefixField;
 @property (assign) IBOutlet NSTextField *yourIDLabel;
